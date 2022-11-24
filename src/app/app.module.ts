@@ -1,26 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { PagesComponent } from './pages/pages/pages.component';
-import { HomeComponent } from './pages/home/home.component';
 import { TableEmployeeComponent } from './components/table-employee/table-employee.component';
+import { TableDepartmentsComponent } from './components/table-deparments/table-departments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     NavbarComponent,
-    PagesComponent,
-    HomeComponent,
+    TableEmployeeComponent,
+    TableDepartmentsComponent,
     TableEmployeeComponent
+  ],
+  exports: [
+    FooterComponent,
+    NavbarComponent,
+    TableEmployeeComponent,
+    TableDepartmentsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

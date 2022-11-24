@@ -1,1 +1,47 @@
-<p>table-employee works!</p>
+
+<h2 *ngIf="employees.length > 0 " class="text-black-50" >Table of employees</h2>
+
+<!-- Container table -->
+<table *ngIf="employees.length > 0 " class="table table-hover">
+  <thead>
+  <tr>
+    <th class="text-black-50" scope="col"># Id</th>
+    <th class="text-black-50" scope="col">Options</th>
+    <th class="text-black-50" scope="col">name</th>
+    <th class="text-black-50" scope="col">lastname</th>
+    <th class="text-black-50" scope="col">email</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <th scope="row">1</th>
+      <td>
+        <button *ngIf="employees.length > 0 " class="btn btn-primary" (click)="open(content, employee.idEmployee)">Details</button>
+      </td>
+      <th class="text-black-50" scope="col">{{ employee.name }}</th>
+      <th class="text-black-50" scope="col">{{ employee.lastName }}</th>
+      <th class="text-black-50" scope="col"> {{ employee.email }}</th>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile data</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>Name: {{ employee.name }} </p>
+    <p>Lastname: {{ employee.lastName }} </p>
+    <p>Email: {{ employee.email }} </p>
+    <p>Phone: {{ employee.phone }} </p>
+    <p>Address: {{ employee.address }} </p>
+    <p>Salary: {{employee.salary}} </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+
