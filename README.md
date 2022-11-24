@@ -4,24 +4,43 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Por favor complete la tarea:
+👏
+👍
+👎
+😊
+😞
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Utilice Angular + Bootstrap / Material para los pasos a continuación:
 
-## Build
+Solicitud de una página.
+- La página debe tener una sección de encabezado y pie de página.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+- El encabezado debería haber llamado la opción de menú 'Detalle'.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+- El encabezado debe tener un icono de perfil de usuario en la esquina superior derecha. El ícono de perfil debe tener un nombre de usuario (cualquiera).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+- El pie de página debe tener algún mensaje relacionado con 'Copyright...'
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+- El cuerpo principal de la página debe contener los detalles del 'Departamento' en una tabla/cuadrícula. Tome algunos datos estáticos como RRHH, MARKETING, FINANZAS, etc.
+
+
+- Al hacer clic en cualquiera de los departamentos, la aplicación debe mostrar el ID y el NOMBRE de todos los empleados en una tabla/cuadrícula secundaria.
+
+
+- La tabla/cuadrícula de empleados debe tener una columna que tenga el enlace 'Ver detalles'. Este enlace debería abrir una ventana emergente con más detalles del empleado, como salario, edad, número de teléfono, etc.
+
+
+- El usuario puede actualizar los datos de cualquier empleado, si lo desea. Esta actualización puede ser un cambio estático, si es necesario. No se requiere BASE DE DATOS aquí.
+
+
+- La página debe ser receptiva.
+
+NOTA: El diseño de UI/UX es importante aquí.
+
+Comparta su aplicación Angular en cualquier Git Repo público o Bit Bucket o Google/Any Drive.
