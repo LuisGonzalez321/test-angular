@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {IEmployeeModel} from "../../models/employee.model";
 import {EmployeeService} from "../../services/employee.service";
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-table-employee',
@@ -24,10 +25,23 @@ export class TableEmployeeComponent implements OnInit, OnChanges {
     salary: 0
   };
 
+  public formGroup: FormGroup | any;
+
   constructor(
     private employeeService: EmployeeService,
-    private modalService: NgbModal
-  ) { }
+    private modalService: NgbModal,
+    private _formBuilder: FormBuilder
+  ) {
+    this.formGroup = this._formBuilder.group({
+      name: new FormControl(''),
+      lastName: new FormControl(''),
+      email: new FormControl(''),
+      phone: new FormControl(''),
+      address: new FormControl(''),
+      age: new FormControl(0),
+      salary: new FormControl(0)
+    });
+  }
 
   public ngOnInit(): void {
   }
@@ -51,6 +65,14 @@ export class TableEmployeeComponent implements OnInit, OnChanges {
 
     this.employeeService.getEmployeeById(idEmployee).subscribe((employee: IEmployeeModel) => {
       this.employee = employee;
+      // add data to form
+      this.formGroup.controls.name.setValue(this.employee.name);
+      this.formGroup.controls.lastName.setValue(this.employee.lastName);
+      this.formGroup.controls.email.setValue(this.employee.email);
+      this.formGroup.controls.phone.setValue(this.employee.phone);
+      this.formGroup.controls.address.setValue(this.employee.address);
+      this.formGroup.controls.age.setValue(this.employee.age);
+      this.formGroup.controls.salary.setValue(this.employee.salary);
     });
 
   }
@@ -64,5 +86,21 @@ export class TableEmployeeComponent implements OnInit, OnChanges {
       return `with: ${reason}`;
     }
   }
+
+  public updateEmployee(): void {
+    this.employee.name = this.formGroup.controls.name.value;
+    this.employee.lastName = this.formGroup.controls.lastName.value;
+    this.employee.email = this.formGroup.controls.email.value;
+    this.employee.phone = this.formGroup.controls.phone.value;
+    this.employee.address = this.formGroup.controls.address.value;
+    this.employee.age = this.formGroup.controls.age.value;
+    this.employee.salary = this.formGroup.controls.salary.value;
+
+    this.employeeService.putEmployee(this.employee).subscribe((employee: IEmployeeModel) => {
+      this.employee = employee;
+      this.modalService.dismissAll();
+    });
+  }
+
 
 }

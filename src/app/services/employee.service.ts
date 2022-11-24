@@ -118,5 +118,12 @@ export class EmployeeService {
     });
   }
 
+  public putEmployee(employee: IEmployeeModel): Observable<IEmployeeModel> {
+    return new Observable<IEmployeeModel>(observer => {
+      const index = this.employees.findIndex(employee => employee.idEmployee === employee.idEmployee);
+      this.employees[index] = employee;
+      observer.next(employee);
+    });
+  }
 
 }

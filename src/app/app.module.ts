@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TableEmployeeComponent } from './components/table-employee/table-employee.component';
 import { TableDepartmentsComponent } from './components/table-deparments/table-departments.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { TableDepartmentsComponent } from './components/table-deparments/table-d
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgbModule
   ],
   providers: [],
